@@ -1,0 +1,80 @@
+<!-- <div class="cart-container">
+    <p>cart works!</p>
+    <div (addToCart)="addToCart($event)"></div>
+    <div class="cart-item" *ngFor="let cart of carts">
+        <ng-container *ngFor="let item of obj">
+            <span>{{cart.url}}</span>
+            <span>{{.name}}</span>
+        </ng-container>
+        
+        <p>{{cart[0].price}}</p>
+    </div>
+    id="{{ cart.id }}"cart-panel
+</div> -->
+
+<div class="cart-container ">
+    <form #form="ngForm" (ngSubmit)="onSubmit(fname)" class=" form-margin" >
+        <div *ngFor="let cart of carts"  class="" >
+            <div class="cart-item" >
+                <div name="cart.url" onclick=""  [(ngModel)]="cart.url">
+                    <img class="img" src="{{ cart.url }}"/> 
+                </div>
+                <div class="cart-item-details">
+                    <label name="cart.name" [(ngModel)]="cart.name">
+                        <h3> {{ cart.name}}</h3>
+                    </label>
+                    <label name="cart.price" [(ngModel)]="cart.price"> $ {{ cart.price }}</label><br><br>
+                    <!-- <input type="number" name="cart.price" ><br><br> -->
+                    <label name="cart.quantity" [(ngModel)]="cart.quantity">Quantity</label>
+                    <input class="number-input" type="number" value="{{ cart.quantity}}" name="cart.quantity" ><br><br>
+                    <!-- <select name="cart.quantity" class="number-input" [(ngModel)]="cart.quantity">
+                        <option value="1">{{ cart.quantity }}</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>id="{{ cart.id}}"
+                        <option value="5">5</option>cart-panel
+                    </select><br><br> --> 
+                    <input type="button" class="" (click)="deleteOneCart(cart.name)" value="Remove {{ cart.name}}" >
+                </div><br>
+            </div>
+            <!-- [(ngModel)]="hero.name" #name="ngModel" -->
+        </div>
+        <div class="empty-cart1-message" >
+            <label name="fname"   minlength="4" >Fullname:
+            <input type="text" [(ngModel)]="fname" (ngModelChange)="fname = $event" required minlength="4" placeholder="Enter your fullname" name="fname" name="fname">
+            </label>
+            <!-- <div *ngIf="fname.errors?.['minlength']">
+                Fullname required and must be at least 4 characters long.
+              </div> -->
+            <br><br>
+
+            <!-- <div *ngIf=" (fname.dirty || fname.touched)" ngModelChange
+    class="alert">
+
+  <div *ngIf="fname.errors?.['required']">
+    Name is required.
+  </div>
+  <div *ngIf="fname.errors?.['minlength']">
+    Name must be at least 4 characters long.
+  </div>
+  <div *ngIf="fname.errors?.['forbiddenName']">
+    Name cannot be B.
+  </div>
+
+</div> -->
+
+            <label name="address" required [(ngModel)]="address">Address:
+            <input type="text" [(ngModel)]="address" (ngModelChange)="address = $event" required minlength="10" placeholder="Enter your current address" name="address" >
+            </label><br><br>  
+            <label name="ccard" [(ngModel)]="ccard"  required placeholder="Enter your credit card number">Credit card number:
+            <input type="number" required minlength="14" name="ccard" [(ngModel)]="ccard" (ngModelChange)="ccard = $event" >
+            </label><br><br>
+        </div>
+        <br><br><br><br>
+        
+        <!-- <input  type="submit" ngModelChange [disabled] ="form.invalid"  value ="Check out" > -->
+        <button routerLink="/success" (click)="onSubmit(fname)" type="submit" [disabled] ="form.invalid"  > Check out</button>
+        <!-- <input routerLink="/success" type="submit" [disabled] ="form.invalid"  value ="Check out" > -->
+    </form>
+
+</div>

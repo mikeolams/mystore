@@ -1,0 +1,25 @@
+<div>
+    <form class="detail-container" id="{{ receivedProduct.id }}"  (ngSubmit)="onSubmit()" >
+    <section>
+        <img class="img"  src="{{ receivedProduct.url }}"/>
+    </section>
+    <section class="detail-item">
+        <label name="receivedProduct.name" [(ngModel)]="receivedProduct.name">
+            <h3> {{ receivedProduct.name }}</h3>
+        </label><br>
+        <label name="receivedProduct.price" [(ngModel)]="receivedProduct.price">{{ receivedProduct.price }}</label><br>
+        <label name="receivedProduct.description " [(ngModel)]="receivedProduct.description " class="detailo-item">{{ receivedProduct.description }}</label><br>
+        <span class="select-input">
+            <select name="receivedProduct.quantity" class=".select-input" [(ngModel)]="receivedProduct.quantity">
+                <option value="1">{{ receivedProduct.quantity }}</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </span><br><br>
+        <button type='submit' >Add to Cart</button><br><br>
+        <button routerLink="/" onclick=""  (click)="onClick()" class="back-link"> Go back to Product list</button>
+    </section>
+</form>
+</div>
